@@ -1,16 +1,16 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const path = require('path')
 module.exports = {
-  entry: './client/src/index.jsx',
+  mode: 'development',
+  entry: path.join(__dirname, '/client/src/index.jsx'),
   output: {
-    path: path.join(__dirname, '/client/dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: path.join(__dirname, '/client/dist')
   },
   module: {
     rules: [
       {
-        test: /\.jsx?/, exclude: /node_modules/,
+        test: /\.jsx$/,
+        exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -21,10 +21,28 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000
+            }
+          }
+        ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       }
     ]
-  },
-  mode: 'production',
-
-
-};
+  }
+}

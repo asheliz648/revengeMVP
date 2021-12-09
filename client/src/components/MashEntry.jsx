@@ -1,6 +1,28 @@
 import React, { useState } from 'react';
 
 const MashEntry = (props) => {
+  // const [country, setCountry] = useState('');
+  // const [luckyNum, setLuckyNum] = useState(0);
+  // const [brewery, setBrewery] = useState('');
+
+  // const handleSelectInput = (e) => {
+  //   console.log('handle select input holder');
+  //   if (e.target.name === 'countries') {
+  //     setCountry(e.target.value);
+  //   } else {
+  //     setBrewery(e.target.value);
+  //   }
+  // }
+
+  // const handleTextInput = (e) => {
+  //   console.log('handle text input holder');
+  //   setLuckyNum(parseInt(e.target.value));
+  // }
+
+  // const handleBuildMyMash = (e) => {
+  //   console.log('mash button pushed');
+  // }
+
   return(
     <div>
       <h2>let's get mashed!</h2>
@@ -25,14 +47,14 @@ const MashEntry = (props) => {
         </label>
         <br></br>
         <label htmlFor="brewery-select">Select one of the words: </label>
-        <select name="breweries" id="brewery-select">
+        <select  name="breweries" id="brewery-select">
           <option value="">--Please Choose an Option--</option>
           <option value="nano">nano</option>
           <option value="micro">micro</option>
           <option value="large">large</option>
         </select>
         <br></br>
-        <button>Build my MASH!</button>
+        <button >Build my MASH!</button>
       </form>
     </div>
   )
