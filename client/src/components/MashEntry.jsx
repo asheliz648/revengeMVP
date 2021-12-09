@@ -1,34 +1,48 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const MashEntry = (props) => {
-  // const [country, setCountry] = useState('');
-  // const [luckyNum, setLuckyNum] = useState(0);
-  // const [brewery, setBrewery] = useState('');
+  const [country, setCountry] = useState('');
+  const [luckyNum, setLuckyNum] = useState(0);
+  const [brewery, setBrewery] = useState('');
 
-  // const handleSelectInput = (e) => {
-  //   console.log('handle select input holder');
-  //   if (e.target.name === 'countries') {
-  //     setCountry(e.target.value);
-  //   } else {
-  //     setBrewery(e.target.value);
-  //   }
-  // }
+  const handleSelectInput = (e) => {
+    console.log('handle select input holder');
+    if (e.target.name === 'countries') {
+      setCountry(e.target.value);
+    } else {
+      setBrewery(e.target.value);
+    }
+  }
 
-  // const handleTextInput = (e) => {
-  //   console.log('handle text input holder');
-  //   setLuckyNum(parseInt(e.target.value));
-  // }
+  const handleTextInput = (e) => {
+    console.log('handle text input holder');
+    setLuckyNum(parseInt(e.target.value));
+  }
 
-  // const handleBuildMyMash = (e) => {
-  //   console.log('mash button pushed');
-  // }
+  const handleBuildMyMash = (e) => {
+    console.log('mash button pushed');
+    // verifyForm();
+
+    axios.post('http://localhost:3092/mashMe', {
+      country: country,
+      luckyNum: luckyNum,
+      brewery: brewery
+    })
+    .then((res) => {
+      console.log('got the res');
+    })
+    .catch((err) => {
+      console.log('error! receiving server res!');
+    })
+  }
 
   return(
     <div>
       <h2>let's get mashed!</h2>
       <form>
         <label htmlFor="country-select">Select the country with your favorite accent: </label>
-        <select name="countries" id="country-select">
+        <select onChange={handleSelectInput} name="countries" id="country-select">
           <option value="">--Please Choose an Option--</option>
           <option value="USA">USA</option>
           <option value="France">France</option>
@@ -43,18 +57,18 @@ const MashEntry = (props) => {
         <br></br>
         <label>
           Enter your lucky number:
-          <input type="text" name="luckyNum" />
+          <input onChange={handleTextInput} type="text" name="luckyNum" />
         </label>
         <br></br>
         <label htmlFor="brewery-select">Select one of the words: </label>
-        <select  name="breweries" id="brewery-select">
+        <select onChange={handleSelectInput} name="breweries" id="brewery-select">
           <option value="">--Please Choose an Option--</option>
           <option value="nano">nano</option>
           <option value="micro">micro</option>
           <option value="large">large</option>
         </select>
         <br></br>
-        <button >Build my MASH!</button>
+        <button onClick={handleBuildMyMash}>Build my MASH!</button>
       </form>
     </div>
   )

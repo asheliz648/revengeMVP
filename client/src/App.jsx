@@ -6,7 +6,7 @@ const App = (props) =>  {
   return (
     <div>
       <h1>MASH for 30+</h1>
-      {/* <MashEntry /> */}
+      <MashEntry />
     </div>
   )
 }
