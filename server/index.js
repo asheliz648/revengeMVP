@@ -2,7 +2,8 @@ const express = require ('express');
 const app = express();
 const port = 3002;
 
-app.use(express.static('../client/dist'));
+app.use(express.static('/Users/ashleyreischman/HackReactor/revengeMVP/client/dist'));
+console.log(__dirname);
 
 app.get('/', (req, res) => {
   console.log('received at /')
