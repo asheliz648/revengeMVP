@@ -41,10 +41,10 @@ const MashEntry = (props) => {
   if (response.brewery === undefined) {
     return(
       <div className="mashedEntryHolder">
-        <h2>let's get mashed!</h2>
+        <h2 className="mashHeader">Answer the questions below to reveal the future you!</h2>
         <form>
-          <label htmlFor="country-select">Select the country with your favorite accent: </label>
-          <select onChange={handleSelectInput} name="country" id="country-select">
+          <label className="label" htmlFor="country-select">Select the country with your favorite accent: </label>
+          <select className='selectMenu' onChange={handleSelectInput} name="country" id="country-select">
             <option value="">--Please Choose an Option--</option>
             <option value="United States">United States</option>
             <option value="France">France</option>
@@ -57,20 +57,20 @@ const MashEntry = (props) => {
             <option value="Ireland">Ireland</option>
           </select>
           <br></br>
-          <label>
+          <label className="label">
             Enter your lucky number:
-            <input onChange={handleTextInput} type="text" name="luckyNum" />
+            <input className="luckyNum" onChange={handleTextInput} type="text" name="luckyNum" />
           </label>
           <br></br>
-          <label htmlFor="brewery-select">Select one of the words: </label>
-          <select onChange={handleSelectInput} name="brewery" id="brewery-select">
+          <label className="label" htmlFor="brewery-select">Select one of the words: </label>
+          <select className="selectMenu" onChange={handleSelectInput} name="brewery" id="brewery-select">
             <option value="">--Please Choose an Option--</option>
             <option value="nano">nano</option>
             <option value="micro">micro</option>
             <option value="large">large</option>
           </select>
           <br></br>
-          <button onClick={handleBuildMyMash}>Build my MASH!</button>
+          <button className="mashBtn" onClick={handleBuildMyMash}>Build my MASH!</button>
         </form>
       </div>
     )
