@@ -1,7 +1,8 @@
 const path = require('path')
+const enterPath = path.join(__dirname, '/client/src/index.jsx')
 module.exports = {
   mode: 'development',
-  entry: path.join(__dirname, '/client/src/index.jsx'),
+  entry: ["regenerator-runtime/runtime.js", enterPath],
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, '/client/dist')

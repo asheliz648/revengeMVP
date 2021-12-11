@@ -6,16 +6,20 @@
   "scripts": {
     "react-dev": "clear && webpack --watch",
     "start-client": "clear && webpack",
-    "start-server": "nodemon ./server/index.js --watch"
+    "start-server": "nodemon ./server/index.js --watch",
+    "inspect-server": "node --inspect ./server/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
