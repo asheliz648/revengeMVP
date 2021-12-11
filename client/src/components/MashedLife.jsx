@@ -1,4 +1,6 @@
 import React from 'react';
+import '../css/MashedLife.css'
+
 
 const MashedLife = (props) => {
   let livingImage = '';
@@ -32,28 +34,33 @@ const MashedLife = (props) => {
   }
 
   return(
-    <div>
-      <h2>Your living situation: </h2>
-      <img src={livingImage}/>
+    <div className="mashedLifeHolder">
+      <h2 className="sectionHeader">Your living situation: </h2>
+      <img className="house" src={livingImage}/>
       <br></br>
-      <h2>About You: </h2>
-      <div>
-        <h3>Your favorite drink: {props.response.cocktail}</h3>
-        <h3>The joke your known for: {props.response.joke}</h3>
-        <h3>The university your kid goes to: {props.response.university}</h3>
-        <h3>The brewery you're a regular at: {props.response.brewery}</h3>
-      </div>
-      <button onClick={handlePlayAgain}>Play Again!</button>
+      <h2 className="sectionHeader">About You: </h2>
+      <ul>
+        <li className="lifeHolder">
+          <h3 className="lifeHeader">Your favorite drink: </h3>
+          <p className="lifeFacts">{props.response.cocktail}</p>
+        </li>
+        <li className="lifeHolder">
+          <h3 className="lifeHeader">The joke your known for: </h3>
+          <p className="lifeFacts">{props.response.joke}</p>
+        </li>
+        <li className="lifeHolder">
+          <h3 className="lifeHeader">The university your kid goes to: </h3>
+          <p className="lifeFacts">{props.response.university}</p>
+        </li>
+        <li className="lifeHolder">
+          <h3 className="lifeHeader">The brewery you're a regular at: </h3>
+          <p className="lifeFacts">{props.response.brewery}</p>
+        </li>
+      </ul>
+      <button className="mashBtn" onClick={handlePlayAgain}>Play Again!</button>
     </div>
   )
 
 }
 
 export default MashedLife;
-
-/*      cocktail: cocktail,
-university: university,
-brewery: brewery,
-joke: joke,
-houseRes: houseRes
-*/
