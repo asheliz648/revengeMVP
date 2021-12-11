@@ -1,16 +1,18 @@
-var path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
+const path = require('path')
+const enterPath = path.join(__dirname, '/client/src/index.jsx')
 module.exports = {
-  entry: './client/src/index.jsx',
+  mode: 'development',
+  entry: ["regenerator-runtime/runtime.js", enterPath],
   output: {
-    path: path.join(__dirname, '/client/dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    path: path.join(__dirname, '/client/dist')
   },
   module: {
     rules: [
       {
-        test: /\.(jsx)$/, exclude: /node_modules/, use: {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        use: {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-react', '@babel/preset-env']
@@ -20,14 +22,17 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       }
     ]
-  },
-  mode: 'development',
-  plugins: [
-    new HtmlWebpackPlugin ({
-      template: 'client/dist/index.html'
-    })
-  ]
-
-};
+  }
+}

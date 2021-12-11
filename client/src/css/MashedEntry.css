@@ -1,0 +1,39 @@
+body {
+  background-image: url('https://i.etsystatic.com/20689728/r/il/8c1909/2450871377/il_794xN.2450871377_59yh.jpg')
+}
+
+.mashedEntryHolder {
+  background-color: yellow;
+  margin: auto;
+  width: fit-content;
+  font-size: 30px;
+  border-radius: 20px;
+
+}
+
+.selectMenu {
+  font-family: 'Architects Daughter';
+  font-size: 20px;
+}
+
+.mashHeader {
+  font-family: 'Architects Daughter';
+  color: fuchsia,
+}
+
+.label {
+  font-family: 'Architects Daughter';
+}
+
+.luckyNum {
+  font-size: 20px
+}
+
+.mashBtn {
+  font-size: 20px;
+  background: lightblue;
+  color: fuchsia;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-left: 500px;
+}
